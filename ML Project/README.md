@@ -51,7 +51,8 @@ The dataset is pre-loaded in the `archive/` folder. It contains:
 ### Complete Pipeline (Recommended)
 
 ```bash
-python -m streamlit run app.py```
+python -m streamlit run app.py
+python main.py
 
 This will execute all modules sequentially:
 1. Load and explore the dataset
@@ -213,8 +214,8 @@ Evaluation metrics:
 
 ## Authors
 
-- Muhammad Furqan (02-131222-016)
 - Muhammad Umer (02-131222-031)
+- Muhammad Furqan (02-131222-016)
 
 **Submitted to**: Engr. Hina Shakir (Course Instructor), Engr. Muniba (Lab Instructor)
 
