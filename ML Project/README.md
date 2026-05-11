@@ -20,13 +20,20 @@ This project demonstrates a complete ML workflow combining:
 
 ```
 ML Project/
-├── archive/
+├── src/
+│   ├── __init__.py
+│   ├── data_preprocessing.py       # Module 1: Data exploration & preprocessing
+│   ├── clustering.py               # Module 2: K-Means clustering
+│   ├── classification.py           # Module 3: Logistic Regression & Regularization
+│   └── evaluation.py               # Module 4: Evaluation & reporting
+├── data/
 │   └── Mall_Customers.csv          # Dataset
-├── 01_data_preprocessing.py        # Module 1: Data exploration & preprocessing
-├── 02_clustering.py                # Module 2: K-Means clustering
-├── 03_classification.py            # Module 3: Logistic Regression & Regularization
-├── 04_evaluation.py                # Module 4: Evaluation & reporting
-├── main.py                         # Main execution script
+├── outputs/
+│   ├── plots/                      # Generated PNG visualizations
+│   └── reports/                    # Generated CSV & TXT reports
+├── docs/                           # Project documents & report templates
+├── main.py                         # Full pipeline entry point
+├── app.py                          # Interactive Streamlit dashboard
 ├── requirements.txt                # Python dependencies
 └── README.md                       # This file
 ```
@@ -41,44 +48,47 @@ pip install -r requirements.txt
 
 ### 2. Dataset
 
-The dataset is pre-loaded in the `archive/` folder. It contains:
+The dataset is located in the `data/` folder. It contains:
 - **Records**: ~200 customers
 - **Features**: Age, Annual Income (k$), Spending Score (1-100)
 - **Format**: CSV
 
 ## Running the Project
 
-### Complete Pipeline (Recommended)
+### Full Pipeline
 
 ```bash
-python -m streamlit run app.py
 python main.py
+```
 
-This will execute all modules sequentially:
+Executes all modules sequentially:
 1. Load and explore the dataset
 2. Perform K-Means clustering with Elbow Method
 3. Train Logistic Regression models (L1, L2, and no regularization)
 4. Evaluate and compare models
-5. Generate visualizations and reports
+5. Save visualizations to `outputs/plots/` and reports to `outputs/reports/`
+
+### Interactive Dashboard
+
+```bash
+streamlit run app.py
+```
+
+Launches a browser UI where you can enter a customer's income and spending score and get a real-time segment prediction.
 
 ### Individual Module Execution
 
-You can also run individual modules:
+Run any module standalone from the project root:
 
 ```bash
-# Data preprocessing only
-python 01_data_preprocessing.py
-
-# Clustering only
-python 02_clustering.py
-
-# Classification only
-python 03_classification.py
+python src/data_preprocessing.py
+python src/clustering.py
+python src/classification.py
 ```
 
 ## Output Files
 
-### Visualizations
+### Visualizations (`outputs/plots/`)
 - `01_feature_exploration.png` - Feature distributions and relationships
 - `02_elbow_method.png` - Optimal cluster determination curve
 - `02_kmeans_clusters.png` - Customer segments in 2D space
@@ -86,7 +96,7 @@ python 03_classification.py
 - `03_confusion_matrices.png` - Classification accuracy matrices
 - `04_demographic_analysis.png` - Segment characteristics
 
-### Reports & Data
+### Reports & Data (`outputs/reports/`)
 - `04_project_report.txt` - Comprehensive project report with findings
 - `04_segment_summary.csv` - Statistical summary of each segment
 - `04_evaluation_summary.csv` - Model evaluation metrics
@@ -159,6 +169,8 @@ Evaluation metrics:
 - **Scikit-learn**: ML algorithms and metrics
 - **Matplotlib**: Visualization and plotting
 - **Seaborn**: Statistical data visualization
+- **Streamlit**: Interactive dashboard (`app.py`)
+- **Plotly**: Interactive charts in the dashboard
 
 ## How Regularization Works
 
