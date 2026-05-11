@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(python --version)",
+      "PowerShell(python.exe -m pip install --upgrade pip setuptools wheel 2>&1)"
+    ]
+  }
+}

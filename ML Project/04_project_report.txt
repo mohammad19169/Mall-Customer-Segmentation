@@ -1,0 +1,10 @@
+
+======================================================================
+MALL CUSTOMER SEGMENTATION - PROJECT REPORT
+======================================================================
+Generated: 2026-05-11 08:18:35
+
+4. KEY FINDINGS
+----------------------------------------------------------------------
+- Customers successfully segmented into groups
+- Logistic Regression effectively classifies customers
