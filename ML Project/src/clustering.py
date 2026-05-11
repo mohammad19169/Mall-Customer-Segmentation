@@ -58,8 +58,8 @@ class KMeansClustering:
         plt.title('Elbow Method for Optimal k', fontsize=14, fontweight='bold')
         plt.grid(True, alpha=0.3)
         plt.xticks(k_values)
-        plt.savefig('02_elbow_method.png', dpi=300, bbox_inches='tight')
-        print("\nElbow Method plot saved as '02_elbow_method.png'")
+        plt.savefig('outputs/plots/02_elbow_method.png', dpi=300, bbox_inches='tight')
+        print("\nElbow Method plot saved as 'outputs/plots/02_elbow_method.png'")
         plt.close()
 
         return k_values, self.inertias
@@ -114,8 +114,8 @@ class KMeansClustering:
         plt.colorbar(scatter, label='Cluster')
         plt.legend()
         plt.grid(True, alpha=0.3)
-        plt.savefig('02_kmeans_clusters.png', dpi=300, bbox_inches='tight')
-        print("Cluster visualization saved as '02_kmeans_clusters.png'")
+        plt.savefig('outputs/plots/02_kmeans_clusters.png', dpi=300, bbox_inches='tight')
+        print("Cluster visualization saved as 'outputs/plots/02_kmeans_clusters.png'")
         plt.close()
 
     def get_labels(self):
@@ -135,7 +135,7 @@ if __name__ == "__main__":
     # Example usage
     from data_preprocessing import DataPreprocessor
 
-    preprocessor = DataPreprocessor("archive/Mall_Customers.csv")
+    preprocessor = DataPreprocessor("data/Mall_Customers.csv")
     preprocessor.load_data()
     preprocessor.preprocess_data()
     features = preprocessor.get_features_for_clustering()

@@ -106,8 +106,8 @@ class DataPreprocessor:
         axes[1, 1].set_ylabel('Spending Score (1-100)')
 
         plt.tight_layout()
-        plt.savefig('01_feature_exploration.png', dpi=300, bbox_inches='tight')
-        print("\nVisualization saved as '01_feature_exploration.png'")
+        plt.savefig('outputs/plots/01_feature_exploration.png', dpi=300, bbox_inches='tight')
+        print("\nVisualization saved as 'outputs/plots/01_feature_exploration.png'")
         plt.close()
 
     def get_features_for_clustering(self):
@@ -121,7 +121,7 @@ class DataPreprocessor:
 
 if __name__ == "__main__":
     # Example usage
-    data_path = "archive/Mall_Customers.csv"
+    data_path = "data/Mall_Customers.csv"
 
     preprocessor = DataPreprocessor(data_path)
     preprocessor.load_data()

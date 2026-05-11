@@ -6,10 +6,10 @@ sys.stdout.reconfigure(encoding='utf-8')
 warnings.filterwarnings('ignore')
 
 # Import all modules
-from data_preprocessing import DataPreprocessor
-from clustering import KMeansClustering
-from classification import LogisticRegressionClassifier
-from evaluation import EvaluationReport
+from src.data_preprocessing import DataPreprocessor
+from src.clustering import KMeansClustering
+from src.classification import LogisticRegressionClassifier
+from src.evaluation import EvaluationReport
 
 
 def print_header(title):
@@ -28,7 +28,7 @@ def main():
     print_header("STEP 1: DATA PREPROCESSING & EXPLORATION")
 
     try:
-        preprocessor = DataPreprocessor("archive/Mall_Customers.csv")
+        preprocessor = DataPreprocessor("data/Mall_Customers.csv")
         preprocessor.load_data()
         preprocessor.explore_data()
         preprocessor.preprocess_data()
@@ -128,20 +128,20 @@ def main():
     print_header("PROJECT COMPLETED SUCCESSFULLY!")
 
     print("\nGenerated Outputs:")
-    print("  Visualizations:")
+    print("  Visualizations (outputs/plots/):")
     print("    - 01_feature_exploration.png")
     print("    - 02_elbow_method.png")
     print("    - 02_kmeans_clusters.png")
     print("    - 03_regularization_comparison.png")
     print("    - 03_confusion_matrices.png")
     print("    - 04_demographic_analysis.png")
-    print("\n  Reports & Data:")
+    print("\n  Reports & Data (outputs/reports/):")
     print("    - 04_project_report.txt")
     print("    - 04_segment_summary.csv")
     print("    - 04_evaluation_summary.csv")
 
     print("\n" + "=" * 70)
-    print("All results have been saved to the current directory!")
+    print("All results have been saved to outputs/")
     print("=" * 70 + "\n")
 
 

@@ -62,8 +62,8 @@ class EvaluationReport:
             print(f"  Segment Type: {segment_name}\n")
         segment_summary = df.groupby('Cluster').agg({'Age': 'mean', 'Annual Income (k$)': 'mean', 'Spending Score (1-100)': 'mean', 'CustomerID': 'count'}).round(2)
         segment_summary.rename(columns={'CustomerID': 'Count'}, inplace=True)
-        segment_summary.to_csv('04_segment_summary.csv')
-        print("Segment summary saved to '04_segment_summary.csv'\n")
+        segment_summary.to_csv('outputs/reports/04_segment_summary.csv')
+        print("Segment summary saved to 'outputs/reports/04_segment_summary.csv'\n")
         return df
 
     def visualize_segments_by_demographics(self, df_with_clusters):
@@ -87,20 +87,20 @@ class EvaluationReport:
         axes[1, 1].set_ylabel('Age')
         plt.suptitle('Demographic Analysis by Customer Segment', fontsize=14, fontweight='bold')
         plt.tight_layout()
-        plt.savefig('04_demographic_analysis.png', dpi=300, bbox_inches='tight')
-        print("Demographic analysis saved as '04_demographic_analysis.png'")
+        plt.savefig('outputs/plots/04_demographic_analysis.png', dpi=300, bbox_inches='tight')
+        print("Demographic analysis saved as 'outputs/plots/04_demographic_analysis.png'")
         plt.close()
 
     def create_summary_report(self):
         report_text = "\n" + "=" * 70 + "\nMALL CUSTOMER SEGMENTATION - PROJECT REPORT\n" + "=" * 70
         report_text += f"\nGenerated: {self.report_data.get('Generated', 'N/A')}\n\n4. KEY FINDINGS\n" + "-" * 70
         report_text += "\n- Customers successfully segmented into groups\n- Logistic Regression effectively classifies customers\n"
-        with open('04_project_report.txt', 'w') as f:
+        with open('outputs/reports/04_project_report.txt', 'w') as f:
             f.write(report_text)
-        print("\nReport saved to '04_project_report.txt'")
+        print("\nReport saved to 'outputs/reports/04_project_report.txt'")
 
     def save_evaluation_summary(self):
         summary_data = {'Metric': ['Total Customers', 'Optimal Clusters'], 'Value': [self.report_data['Dataset']['Total Customers'], self.report_data['Clustering']['Optimal Clusters']]}
         summary_df = pd.DataFrame(summary_data)
-        summary_df.to_csv('04_evaluation_summary.csv', index=False)
-        print("Evaluation summary saved to '04_evaluation_summary.csv'")
+        summary_df.to_csv('outputs/reports/04_evaluation_summary.csv', index=False)
+        print("Evaluation summary saved to 'outputs/reports/04_evaluation_summary.csv'")

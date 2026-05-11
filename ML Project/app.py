@@ -186,7 +186,7 @@ SEGMENTS = {
 # ── Model training (cached) ────────────────────────────────────────────────────
 @st.cache_resource(show_spinner="Training models on dataset...")
 def load_and_train():
-    df = pd.read_csv("archive/Mall_Customers.csv")
+    df = pd.read_csv("data/Mall_Customers.csv")
     features = df[["Annual Income (k$)", "Spending Score (1-100)"]].values
 
     scaler = StandardScaler()

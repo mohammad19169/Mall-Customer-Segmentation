@@ -167,8 +167,8 @@ class LogisticRegressionClassifier:
 
         plt.suptitle('Regularization Technique Comparison', fontsize=14, fontweight='bold')
         plt.tight_layout()
-        plt.savefig('03_regularization_comparison.png', dpi=300, bbox_inches='tight')
-        print("\nComparison plot saved as '03_regularization_comparison.png'")
+        plt.savefig('outputs/plots/03_regularization_comparison.png', dpi=300, bbox_inches='tight')
+        print("\nComparison plot saved as 'outputs/plots/03_regularization_comparison.png'")
         plt.close()
 
     def visualize_confusion_matrices(self):
@@ -197,8 +197,8 @@ class LogisticRegressionClassifier:
             ax.set_yticks(range(cm.shape[0]))
 
         plt.tight_layout()
-        plt.savefig('03_confusion_matrices.png', dpi=300, bbox_inches='tight')
-        print("Confusion matrices saved as '03_confusion_matrices.png'")
+        plt.savefig('outputs/plots/03_confusion_matrices.png', dpi=300, bbox_inches='tight')
+        print("Confusion matrices saved as 'outputs/plots/03_confusion_matrices.png'")
         plt.close()
 
     def get_model(self, regularization='l2'):
@@ -211,7 +211,7 @@ if __name__ == "__main__":
     from data_preprocessing import DataPreprocessor
     from clustering import KMeansClustering
 
-    preprocessor = DataPreprocessor("archive/Mall_Customers.csv")
+    preprocessor = DataPreprocessor("data/Mall_Customers.csv")
     preprocessor.load_data()
     preprocessor.preprocess_data()
     features = preprocessor.get_features_for_clustering()
